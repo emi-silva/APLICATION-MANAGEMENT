@@ -62,10 +62,11 @@ docker compose down
 
 - Backend (`server/.env`):
 	- `DATABASE_URL` (Postgres), ejemplo: `postgresql://taskapp:taskapp@localhost:5432/taskapp?schema=public`
+	- `FRONTEND_ORIGIN` (CSV) para CORS/Socket.IO en producción, ej: `https://tu-frontend.vercel.app`
 	- `HOST`, `PORT` (opcional)
 
 - Frontend (`web/.env`):
-	- `VITE_API_URL` apuntando al backend, ejemplo local: `http://localhost:4000`
+	- `VITE_API_URL` apuntando al backend, ejemplo local: `http://localhost:4000` (sin slash final)
 
 ## Deploy frontend en Vercel
 
@@ -74,7 +75,8 @@ docker compose down
 3) Build Command: `npm run build`
 4) Output Directory: `dist`
 5) Node 18+
-6) Variables de entorno en Vercel: define `VITE_API_URL` apuntando a tu backend público.
+6) Variables de entorno en Vercel: define `VITE_API_URL` apuntando a tu backend público (sin slash final). Ej: `https://tu-backend.com`
+7) Si usas dominio custom, actualiza también `FRONTEND_ORIGIN` en el backend para que CORS/Socket.IO lo permita.
 
 ## Deploy backend
 

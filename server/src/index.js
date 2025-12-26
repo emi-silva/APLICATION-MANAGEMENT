@@ -9,15 +9,23 @@ const bcrypt = require('bcryptjs');
 const PORT = process.env.PORT || 4000;
 const HOST = process.env.HOST || '127.0.0.1';
 
+const allowedOrigins = (process.env.FRONTEND_ORIGIN || '')
+  .split(',')
+  .map((o) => o.trim())
+  .filter(Boolean);
+const defaultOrigins = [
+  'http://localhost:5173',
+  'http://127.0.0.1:5173',
+];
+
+const corsConfig = {
+  origin: allowedOrigins.length ? allowedOrigins : defaultOrigins,
+  credentials: true,
+};
+
 const app = express();
 app.use(express.json());
-app.use(cors({
-  origin: [
-    'http://localhost:5173',
-    'http://127.0.0.1:5173',
-  ],
-  credentials: true,
-}));
+app.use(cors(corsConfig));
 
 app.get('/health', (req, res) => res.json({ ok: true }));
 
@@ -68,12 +76,9 @@ app.delete('/api/:workspaceId/tasks/:id', async (req, res) => {
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: [
-      'http://localhost:5173',
-      'http://127.0.0.1:5173',
-    ],
-    methods: ['GET', 'POST', 'PATCH', 'DELETE']
-  }
+    origin: allowedOrigins.length ? allowedOrigins : defaultOrigins,
+    methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+  },
 });
 
 io.on('connection', (socket) => {
