@@ -1,0 +1,34 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Runtime
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Dependency directories
+node_modules/
+
+# Build outputs
+web/dist/
+web/.vite/
+server/.cache/
+
+# Env files
+*.env
+.env.*
+
+# Prisma local sqlite files
+server/prisma/dev.db*
+
+# Misc
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

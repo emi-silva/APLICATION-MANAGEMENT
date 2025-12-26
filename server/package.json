@@ -1,0 +1,24 @@
+{
+  "name": "task-app-server",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Backend de la Task Management App con Express + Socket.IO",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js",
+    "seed": "node prisma/seed.js",
+    "db:push": "prisma db push"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "socket.io": "^4.7.2",
+    "@prisma/client": "^5.18.0",
+    "bcryptjs": "^2.4.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2",
+    "prisma": "^5.18.0"
+  }
+}

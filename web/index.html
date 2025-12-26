@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Management App</title>
+    <style>
+      :root { font-family: Inter, system-ui, Arial; }
+      body { margin: 0; background: #0f172a; color: #e2e8f0; }
+      .container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+      .card { background: #111827; border: 1px solid #1f2937; border-radius: 10px; padding: 16px; }
+      .row { display: grid; grid-template-columns: 1fr 2fr; gap: 16px; }
+      input, select, button, textarea { background: #111827; border: 1px solid #374151; color: #e5e7eb; border-radius: 8px; padding: 8px 10px; }
+      button { cursor: pointer; background: #4f46e5; border-color: #4f46e5; }
+      button.secondary { background: #374151; border-color: #374151; }
+      h1 { margin-top: 0; }
+      .pill { display: inline-block; padding: 2px 8px; border-radius: 999px; background: #1f2937; font-size: 12px; }
+      .status-todo { background: #991b1b; }
+      .status-doing { background: #92400e; }
+      .status-done { background: #065f46; }
+      .presence { display: flex; flex-wrap: wrap; gap: 8px; }
+      .presence-item { display: inline-flex; align-items: center; gap: 8px; padding: 4px 8px; border-radius: 8px; background: #0b1020; border: 1px solid #1f2937; }
+      .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+      .tasks { display: grid; gap: 8px; }
+      .task { border: 1px solid #1f2937; background: #0b1020; border-radius: 8px; padding: 8px; }
+      .task header { display: flex; justify-content: space-between; align-items: center; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

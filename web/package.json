@@ -1,0 +1,20 @@
+{
+  "name": "task-app-web",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Frontend React (Vite) para la Task Management App",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "socket.io-client": "^4.7.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.1.0",
+    "vite": "^5.0.0"
+  }
+}
